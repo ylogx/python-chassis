@@ -40,7 +40,8 @@ lint_dir:
 	@which black && black --version
 	black .
 
-lint: check_poetry
+lint: lint_ci
+lint_ci: check_poetry
 	poetry run black .
 
 test_dir:
@@ -48,7 +49,8 @@ test_dir:
 	@which pytest && pytest --version
 	pytest
 
-test: check_poetry
+test: test_ci
+test_ci: check_poetry
 	poetry run pytest
 
 
