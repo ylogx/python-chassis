@@ -77,7 +77,8 @@ build:
 	docker build --pull -f Dockerfile -t python-chassis .
 
 drun: build
-	docker run -v $$(pwd):/app --rm -it python-chassis bash -c "poetry run python run.py bizness"
+	@#docker run -v $$(pwd):/app --rm -it python-chassis bash -c "poetry run python run.py perform"
+	docker run -v $$(pwd):/home/appuser --rm -it python-chassis bash -c "python run.py perform"
 
 dsh: build
-	docker run -v $$(pwd):/app --rm -it python-chassis poetry shell
+	docker run -v $$(pwd):/home/appuser --rm -it python-chassis poetry shell
