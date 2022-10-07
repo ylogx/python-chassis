@@ -55,7 +55,7 @@ test_ci: check_poetry
 
 
 run:
-	poetry run python run.py --help
+	#poetry run python run.py --help
 	poetry run python run.py perform
 
 sh:
