@@ -1,5 +1,10 @@
+all: lint test
+
 lint:
 	pipenv run black .
+
+test:
+	pipenv run pytest
 
 run:
 	pipenv run python run.py --help
