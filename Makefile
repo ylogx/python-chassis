@@ -13,10 +13,10 @@ run:
 	pipenv run python run.py perform
 
 init: install
-init_ci: install_pipenv install
 install:
 	pipenv install
 
+init_ci: install_pipenv dev-install
 install_pipenv:
 	pip install -U pip
 	pip install pipenv
