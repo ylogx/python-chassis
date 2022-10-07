@@ -1,8 +1,10 @@
 all: lint test
 
+lint_ci: lint
 lint:
 	pipenv run black .
 
+test_ci: test
 test:
 	pipenv run pytest
 
@@ -11,8 +13,13 @@ run:
 	pipenv run python run.py perform
 
 init: install
+init_ci: install_pipenv install
 install:
 	pipenv install
+
+install_pipenv:
+	pip install -U pip
+	pip install pipenv
 
 dev-install:
 	pipenv install --dev
