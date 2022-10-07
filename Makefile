@@ -1,7 +1,6 @@
 GIT_TAG=$$(git describe --always)
 
 all: ci
-ci: lint test
 
 # Poetry Package Manager
 check_poetry:
@@ -33,23 +32,23 @@ init_dev: check_poetry
 	# poetry run pre-commit install -t pre-commit -t pre-push
 	pre-commit install -t pre-commit -t pre-push
 
-ci: lint_ci test_ci
-ci_original: lint test
+ci: lint test
+ci_dir: lint_dir test_dir
 
-lint:
+lint_dir:
 	@hash black || poetry add --dev black
 	@which black && black --version
 	black .
 
-lint_ci: check_poetry
+lint: check_poetry
 	poetry run black .
 
-test:
+test_dir:
 	@hash pytest || poetry add --dev pytest
 	@which pytest && pytest --version
 	pytest
 
-test_ci: check_poetry
+test: check_poetry
 	poetry run pytest
 
 
