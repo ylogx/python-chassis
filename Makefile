@@ -32,6 +32,10 @@ init_dev: check_poetry
 	# poetry run pre-commit install -t pre-commit -t pre-push
 	pre-commit install -t pre-commit -t pre-push
 
+init_locally:
+	poetry export --with dev -f requirements.txt --output requirements.txt --without-hashes
+	pip install -r requirements.txt
+
 ci: lint test
 ci_dir: lint_dir test_dir
 
