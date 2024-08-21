@@ -13,7 +13,7 @@ profile = 'black'
 [tool.poetry]
 name = "python-chassis"
 version = "0.0.1"
-description = "Python Chassis code base"
+description = "Python Template code base"
 authors = ["Shubham Chaudhary <shubham@chaudhary.xyz>"]
 readme = "README.md"
 
