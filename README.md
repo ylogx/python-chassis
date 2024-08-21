@@ -16,19 +16,13 @@ Installation
 
 ```bash
 APP_NAME=my-new-app
-git clone --recursive git@github.com:ylogx/python-chassis.git ${APP_NAME}
-
-grep -lR --exclude-dir=".git" "python-chassis" . | xargs sed -i "s/python-chassis/${APP_NAME}/g"
-grep -lR --exclude-dir=".git" "Python Template" . | xargs sed -i "s/Python Template/${APP_NAME}/g"
-mv chassis_app ${APP_NAME//[-]/_}
-grep -lR --exclude-dir=".git" "chassis_app" . | xargs sed -i "s/chassis_app/${APP_NAME//[-]/_}/g"
-
-make init # Install dependencies and setup virtual environment
+git clone --recursive git@github.com:ylogx/python-chassis.git ${APP_NAME} && cd ${APP_NAME} && bin/new-project
 ```
 
 This will clone the repository and setup code for your new specified App Name.
-The `make init` command will install dependencies and setup a virtual environment for the project.
+This will install dependencies and setup a virtual environment for the project.
 You can use `poetry` commands to manage dependencies and virtual environment.
+You can find more useful commands in the `Makefile`.
 
 Run
 ---

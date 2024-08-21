@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# export APP_NAME=my-new-app
+if [ -z ${APP_NAME+x} ]; then # Fail if APP_NAME is not set
+  printf "APP_NAME is not set.\n Usage: APP_NAME=my-new-app bin/new-project\n"
+  exit 1
+fi
+
+# git clone --recursive git@github.com:ylogx/python-chassis.git ${APP_NAME}
+
+# Deployment name
+grep -lR --exclude-dir=".git" "python-chassis" . | xargs sed -i "s/python-chassis/${APP_NAME}/g"
+# Documentation name
+grep -lR --exclude-dir=".git" "Python Template" . | xargs sed -i "s/Python Template/${APP_NAME}/g"
+# Package name
+mv chassis_app ${APP_NAME//[-]/_}
+grep -lR --exclude-dir=".git" "chassis_app" . | xargs sed -i "s/python-chassis/${APP_NAME//[-]/_}/g"
+
+# Virtual environment
+make init # Install dependencies and setup virtual environment
