@@ -28,7 +28,8 @@ if git remote -v | grep -q "ylogx/python-chassis"; then
   git commit -m "Initial commit for ${APP_NAME}
 
 Cloned from python-chassis: https://github.com/ylogx/python-chassis on $(date).
-Latest commit: ${LATEST_COMMIT}"
+Latest commit: ${LATEST_COMMIT}
+https://github.com/ylogx/python-chassis/tree/${LATEST_COMMIT}"
 else
   echo "Skipping git initialization..."
 fi
