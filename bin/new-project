@@ -8,13 +8,30 @@ fi
 
 # git clone --recursive git@github.com:ylogx/python-chassis.git ${APP_NAME}
 
+echo "Renaming python-chassis to ${APP_NAME}..."
 # Deployment name
 grep -lR --exclude-dir=".git" "python-chassis" . | xargs sed -i "s/python-chassis/${APP_NAME}/g"
 # Documentation name
 grep -lR --exclude-dir=".git" "Python Template" . | xargs sed -i "s/Python Template/${APP_NAME}/g"
 # Package name
 mv chassis_app ${APP_NAME//[-]/_}
-grep -lR --exclude-dir=".git" "chassis_app" . | xargs sed -i "s/python-chassis/${APP_NAME//[-]/_}/g"
+grep -lR --exclude-dir=".git" "chassis_app" . | xargs sed -i "s/chassis_app/${APP_NAME//[-]/_}/g"
 
-# Virtual environment
+# Only do this if the git remote url contains ylogx/python-chassis
+if git remote -v | grep -q "ylogx/python-chassis"; then
+  echo "Initializing new git repository..."
+
+  LATEST_COMMIT=$(git log --pretty=format:'%h' -n 1)
+  rm -rf .git
+  git init
+  git add .
+  git commit -m "Initial commit for ${APP_NAME}
+
+Cloned from python-chassis: https://github.com/ylogx/python-chassis on $(date).
+Latest commit: ${LATEST_COMMIT}"
+else
+  echo "Skipping git initialization..."
+fi
+
+echo "Setting up dependencies and virtual environment..."
 make init # Install dependencies and setup virtual environment

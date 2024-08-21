@@ -15,8 +15,8 @@ Installation
 ------------
 
 ```bash
-APP_NAME=my-new-app
-git clone --recursive git@github.com:ylogx/python-chassis.git ${APP_NAME} && cd ${APP_NAME} && bin/new-project
+export APP_NAME=my-new-app
+git clone --recursive https://github.com/ylogx/python-chassis.git ${APP_NAME} && cd ${APP_NAME} && bin/new-project
 ```
 
 This will clone the repository and setup code for your new specified App Name.
