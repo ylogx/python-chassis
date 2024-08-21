@@ -2,7 +2,7 @@ import click
 
 from loguru import logger
 
-import bizness.performer
+import chassis_app.performer
 
 
 @click.group()
@@ -12,7 +12,7 @@ def cli():
 
 @cli.command()
 def perform():
-    performance = bizness.performer.perform_something()
+    performance = chassis_app.performer.perform_something()
     logger.info(f"Performance output: {performance}")
 
 

@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from bizness import performer
+from chassis_app import performer
 
 
 class PerformerTest(TestCase):

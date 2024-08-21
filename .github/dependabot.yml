@@ -6,6 +6,6 @@
 version: 2
 updates:
   - package-ecosystem: "pip" # See documentation for possible values
-    directory: "/bizness" # Location of package manifests
+    directory: "/chassis_app" # Location of package manifests
     schedule:
       interval: "daily"

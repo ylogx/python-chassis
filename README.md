@@ -20,6 +20,8 @@ git clone --recursive git@github.com:ylogx/python-chassis.git ${APP_NAME}
 
 grep -lR --exclude-dir=".git" "python-chassis" . | xargs sed -i "s/python-chassis/${APP_NAME}/g"
 grep -lR --exclude-dir=".git" "Python Template" . | xargs sed -i "s/Python Template/${APP_NAME}/g"
+mv chassis_app ${APP_NAME//[-]/_}
+grep -lR --exclude-dir=".git" "chassis_app" . | xargs sed -i "s/chassis_app/${APP_NAME//[-]/_}/g"
 
 make init # Install dependencies and setup virtual environment
 ```
