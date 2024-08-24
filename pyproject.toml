@@ -18,7 +18,7 @@ authors = ["Shubham Chaudhary <shubham@chaudhary.xyz>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.12"
 click = "^8.1"
 loguru = "^0.7"
 python-dotenv = "^1.0"
