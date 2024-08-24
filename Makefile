@@ -61,6 +61,7 @@ test_ci: check_poetry
 run:
 	#poetry run python run.py --help
 	poetry run python run.py perform
+	poetry run uvicorn chassis_app.main:app --reload
 
 sh:
 	poetry shell

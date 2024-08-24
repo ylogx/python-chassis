@@ -20,3 +20,5 @@ RUN ${POETRY_HOME}/bin/poetry install --only main --no-root --no-ansi
 WORKDIR /app
 
 COPY . .
+
+CMD poetry run uvicorn chassis_app.main:app --reload

@@ -33,6 +33,5 @@ USER appuser
 EXPOSE 8000
 
 COPY . .
-# # Run the application
-# ENTRYPOINT ["python", "-m", "http.server"]
-# CMD ["--directory", "directory", "8001"]
+
+CMD uvicorn chassis_app.main:app --port 8000 --host 0.0.0.0
