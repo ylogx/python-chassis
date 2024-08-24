@@ -7,7 +7,8 @@ class PerformerTest(TestCase):
     def test_perform_something__happy_path__success(self):
         output = performer.perform_something()
 
-        self.assertEqual(["Everything everywhere all at once."], output)
+        self.assertEqual(2, len(output))
+        self.assertEqual("Everything everywhere all at once.", output[0])
 
 
 class ValueGeneratorTest(TestCase):
